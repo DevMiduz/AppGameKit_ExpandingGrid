@@ -9,7 +9,7 @@ The licencing is only a per file basis and changes to the files you make should 
 
 This way we can all benefit from each other.
 
-##Licence Header
+## Licence Header
 This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/.
