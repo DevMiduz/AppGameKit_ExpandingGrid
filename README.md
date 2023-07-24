@@ -1,5 +1,5 @@
-# AppGameKit_ExpandingGrid
-A grid which can be expanded easily.
+# Expanding Grid Library
+A grid which can be easily expanded created using AppGameKit.
 
 ## LICENCE RELATED:
 
