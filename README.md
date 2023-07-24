@@ -9,10 +9,10 @@ A grid which can be easily expanded created using AppGameKit.
 * Expanding by 1 should expand by 1 on both sides (width) and increment the height by 2.
 
 Example:
-    -2 -1 0 1 2
-  0
-  1
-  2
+    -2 -1 0 1 2\
+  0\
+  1\
+  2\
 
 ## LICENCE RELATED:
 
