@@ -6,7 +6,6 @@ A grid which can be easily expanded created using AppGameKit.
 * Coords on the left will be negative.
 * Coords on the right will be positive.
 * This way it will be easy to keep the positions of the existing tiles the same.
-* Expanding by 1 should expand by 1 on both sides (width) and increment the height by 2.
 
 Example:\
     -2 -1 0 1 2\
