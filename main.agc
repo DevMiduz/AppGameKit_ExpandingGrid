@@ -31,6 +31,8 @@
 
 */
 
+initEngine()
+
 grid as EXG_Grid
 EXG_InitGridRef(grid, 8)
 position as EXG_Point
