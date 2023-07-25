@@ -11,7 +11,7 @@
 *	devmiduz@gmail.com
 */
 
-function initEngine()
+function InitEngine()
 	// show all errors
 	
 	SetErrorMode(2)

@@ -31,7 +31,7 @@
 
 */
 
-initEngine()
+InitEngine()
 
 grid as EXG_Grid
 EXG_InitGridRef(grid, 8)
