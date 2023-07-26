@@ -75,6 +75,18 @@ do
    	Print("POSITION: " + str(position.x) + "," + str(position.y))
    	Print("POINT: " + str(point.x) + "," + str(point.y))
    	Print("POINT IS WITHIN GRID: " + str(EXG_IsPointWithinGrid(grid, point)))
+   	
+   	centerPoint as EXG_Point
+   	centerPoint = EXG_GetTileCenterByPoint(grid, point)
+   	Print("POINT CENTER IS: X:" + str(centerPoint.x) + ", Y: " + str(centerPoint.y))
+   	
+   	box as EXG_Box
+   	box.position.x = -16
+   	box.position.y = -16
+   	box.size = 30
+   	
+   	test = EXG_GetTileIndexesInBox(grid, box)
+    Print(str(test))
     
     if(GetRawKeyPressed(32))
     		EXG_ExpandGrid(grid, 1, 1, 1, 1)

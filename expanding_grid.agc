@@ -29,6 +29,11 @@
 		
 */
 
+type EXG_Box
+	position as EXG_Point // top-left
+	size as integer
+endtype
+
 type EXG_Point
 	x as integer
 	y as integer
@@ -172,12 +177,52 @@ function EXG_GetTilePointFromPosition(grid ref as EXG_Grid, position as EXG_Poin
 	endif
 endfunction tilePoint
 
-function EXG_GetTileWorldPosition(grid ref as EXG_Grid, rowIndex as integer, tileIndex as integer)
+function EXG_GetTileWorldPosition(grid ref as EXG_Grid, x as integer, y as integer)
 	position as EXG_Point
-	position = EXG_CreatePoint(grid.center.x + (tileIndex * grid.tileSize), grid.center.y + (rowIndex * grid.tileSize))
+	position = EXG_CreatePoint(grid.center.x + (x * grid.tileSize), grid.center.y + (y * grid.tileSize))
 endfunction position
 
 function EXG_IsPointWithinGrid(grid ref as EXG_Grid, point as EXG_Point)
 	if(point.x < -Grid.westOffset or point.x > Grid.eastOffset) then exitfunction -1
 	if(point.y < -Grid.northOffset or point.y > Grid.southOffset) then exitfunction -1
 endfunction 1
+
+function EXG_GetTileCenterByPoint(grid ref as EXG_Grid, point as EXG_Point)
+	position as EXG_Point
+	position = EXG_GetTileCenterByIndex(grid, point.x, point.y)
+endfunction position
+
+function EXG_GetTileCenterByIndex(grid ref as EXG_Grid, x as integer, y as integer)
+	position as EXG_Point
+	position = EXG_CreatePoint(grid.center.x + (x * grid.tileSize) + (grid.tileSize / 2), grid.center.y + (y * grid.tileSize) + (grid.tileSize / 2) )
+endfunction position
+
+function EXG_GetTileIndexesInBox(grid ref as EXG_Grid, box as EXG_Box)
+	tileIndexes as EXG_Point[]
+	
+	indexSize as integer 
+	indexSize = box.size / grid.tileSize
+	
+	if(mod(box.size, grid.tileSize) <> 0)
+		inc indexSize
+	endif
+	
+	position as EXG_Point
+	
+	for i = 0 to indexSize - 1
+		
+		position.x = box.position.x + (grid.tileSize * i) 
+			
+		for j = 0 to indexSize - 1
+
+			position.y = box.position.y + (grid.tileSize * j)
+			
+			tileIndexes.insert(EXG_GetTilePointFromPosition(grid, position))
+		next j
+	next i
+	
+	for i = 0 to tileIndexes.length
+		Log(str(tileIndexes[i].x) + "," + str(tileIndexes[i].y))
+	next i
+	
+endfunction indexSize
